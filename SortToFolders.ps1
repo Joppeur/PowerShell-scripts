@@ -1,5 +1,5 @@
-﻿# Path hardcoded or run at script location
-#$FolderPath = cd C:\Users\
+﻿# WARNING if using a direct folder path, do not type in the last \ or the script might not work
+#$FolderPath = C:\Users\Me\Photos
 $FolderPath = Get-Location
 
 Write-Host "Counting files... Might take a while."
