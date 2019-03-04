@@ -22,7 +22,7 @@ ForEach($File in $photos) {
     $calc = ($FilesMoved/$Photos.Count*100)
     Write-Progress -Activity "Moving photos" -Status ("{0:0}% " -f $calc) -PercentComplete $calc -CurrentOperation $File.Name
 
-    # Getting months in format "09_june" and years in "2019".
+    # Getting months in format "06_june" and years in "2019".
     $fMonth = "{0:00}_{1}" -f $File.LastWriteTime.Month, $File.LastWriteTime.toString("MMMM")
     $fYear = $File.LastWriteTime.Year
 
