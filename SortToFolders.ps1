@@ -5,7 +5,7 @@ $FolderPath = Get-Location
 Write-Host "Counting files... Might take a while."
 
 # Filetypes to sort
-$Photos = Get-ChildItem $cPath* -Attributes !Directory -Include *.jpg, *.jpeg, *.mp4
+$Photos = Get-ChildItem -Path $FolderPath\* -Attributes !Directory -Include *.jpg, *.jpeg, *.mp4
 Clear-Host
 
 # Confirmation prompt to run script
