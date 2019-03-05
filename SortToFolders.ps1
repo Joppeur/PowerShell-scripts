@@ -1,11 +1,11 @@
-﻿# WARNING if using a direct folder path, do not type in the last \ or the script might not work
-#$FolderPath = C:\Users\Me\Photos
+﻿# WARNING if using a direct folder path, do not type in \ to the end or the script might not work
+#FolderPath = Path C:\Users\Me\Photos
 $FolderPath = Get-Location
 
 Write-Host "Counting files... Might take a while."
 
-# Filetypes to sort
-$Photos = Get-ChildItem -Path $FolderPath\* -Attributes !Directory -Include *.jpg, *.jpeg, *.mp4
+# Filetypes to sort (NOTE, when adding new video types, also add them to "$isVideo" line somewhere in the loop
+$Photos = Get-ChildItem -Path $FolderPath\* -File -Include *.jpg, *.jpeg, *.mp4
 Clear-Host
 
 # Confirmation prompt to run script
@@ -17,7 +17,7 @@ if($confirmation -notin "y", "yes") {
 
 $FilesMoved = 0
 $FoldersCreated = 0;
-ForEach($File in $photos) { 
+ForEach($File in $Photos) {
     # Progress bar
     $calc = ($FilesMoved/$Photos.Count*100)
     Write-Progress -Activity "Moving photos" -Status ("{0:0}% " -f $calc) -PercentComplete $calc -CurrentOperation $File.Name
@@ -37,7 +37,7 @@ ForEach($File in $photos) {
     # Creating folders if needed. Separate videos to their own folder
     $pathExist = Test-Path($fDest)
     if($pathExist -eq $false) { 
-        mkDir $fDest | out-null 
+        mkDir $fDest | Out-Null 
         $FoldersCreated++
     }
     Move-Item $File -Destination $fDest
