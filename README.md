@@ -12,7 +12,7 @@ To run:
 
 Options to change in code:
 - Line 1: change the .eng.srt append to your liking
-- Line 45: Change regex to remove all font formatting, or just to remove font bold tags and font size. Correct regex code is on the line below.
+- Line 45: Change regex to remove all font formatting, or just to remove font bold tags and font size. Regex for both are on the line below.
 
 ## simple-filesort
 
