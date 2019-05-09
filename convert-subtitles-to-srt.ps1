@@ -23,7 +23,7 @@ ForEach($file in $FileBrowser.FileNames){
     $calc = ($filesMoved/$FileBrowser.FileNames.Count*100)
     Write-Progress -Activity "Converting subtitles ..." -Status ("{0}/{1}" -f $filesMoved, $FileBrowser.FileNames.Count) -PercentComplete $calc  -CurrentOperation $file
     $newName = $file -Replace "\.[^\.]*$",".$language.srt"
-	# change flag -y to -n to disable automatic overwriting
+    # change flag -y to -n to disable automatic overwriting
     ffmpeg -hide_banner -loglevel error -i $file -map 0:s:0 "$newName" -y
     $SrtFileNames.Add($newName)
     $filesMoved++
@@ -43,7 +43,7 @@ ForEach($file in $SrtFileNames) {
     $calc = ($filesMoved/$SrtFileNames.Count*100)
     Write-Progress -Activity "Cleaning .srt files ..." -Status ("{0}/{1}" -f $filesMoved, $SrtFileNames.Count) -PercentComplete $calc  -CurrentOperation $file 
     (Get-Content -Encoding UTF8 -LiteralPath "$file") -Replace '( <(.*?)> )' | Out-File -LiteralPath "$file"
-	#regex options. First on removes font sizes and bolding, 2nd one removes all font formatting.
+    #regex options. First one removes font sizes and bolding, 2nd one removes all font formatting.
     #( size="(.*?))"|(<b(.*?)>)|(</b(.*?)>)
     #"<(.*?)>"
     $filesMoved++
