@@ -15,6 +15,7 @@ Options to change in code:
 - Line 27: Change -y / -n flag to tell ffmpeg to automatically overwrite (or not to) existing .srt files. Default is -y.
 - Line 45: Change regex to remove all font formatting, or just to remove font bold tags and font size. Regex for both are on the line below.
 
+NOTE: May work with other containers/video files, but not tested.
 ## simple-filesort
 
 A PowerShell script to sort .jpeg and .mp4 files to folders per year and month. Videos will be placed in their own folder.
