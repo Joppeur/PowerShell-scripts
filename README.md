@@ -6,7 +6,7 @@ Extracts embedded .ass subtitles from .mkv containers and converts them to .srt 
 Made for managing subtitles in Plex, since some platforms can't direct play .ass subs.
 
 To run:
-1. Run from any folder.
+1. Download and save script anywhere on your computer, right click and choose "Run with PowerShell".
 2. Select .mkv files to extract subtitles from.
 3. By default, extracted subtitles go to the same folder as the video, and names the subtitle to VideoFileName.eng.srt
 
