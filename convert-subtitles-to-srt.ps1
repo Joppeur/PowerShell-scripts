@@ -14,8 +14,6 @@ if($result -eq "Cancel") {
 Write-Host "`n`n`n`n`n`n`n`n`n"
 Write-Host "ffmpeg subtitle extraction started."
 
-#Write-Host $FileBrowser.FileNames
-#$SrtFileNames = $FileBrowser.Filenames -Replace "\.[^\.]*$",".$language.srt"
 $SrtFileNames = New-Object Collections.Generic.List[String]
 
 $filesMoved = 1
@@ -23,7 +21,7 @@ ForEach($file in $FileBrowser.FileNames){
     $calc = ($filesMoved/$FileBrowser.FileNames.Count*100)
     Write-Progress -Activity "Converting subtitles ..." -Status ("{0}/{1}" -f $filesMoved, $FileBrowser.FileNames.Count) -PercentComplete $calc  -CurrentOperation $file
     $newName = $file -Replace "\.[^\.]*$",".$language.srt"
-    # change flag -y to -n to disable automatic overwriting
+    # CHANGE FLAG -y overwrite existing .srt files and-n to disable automatic overwriting. Remove flag to be prompted for each file. 
     ffmpeg -hide_banner -loglevel error -i $file -map 0:s:0 "$newName" -y
     $SrtFileNames.Add($newName)
     $filesMoved++
@@ -43,7 +41,7 @@ ForEach($file in $SrtFileNames) {
     $calc = ($filesMoved/$SrtFileNames.Count*100)
     Write-Progress -Activity "Cleaning .srt files ..." -Status ("{0}/{1}" -f $filesMoved, $SrtFileNames.Count) -PercentComplete $calc  -CurrentOperation $file 
     (Get-Content -Encoding UTF8 -LiteralPath "$file") -Replace '(<(.*?)>)' | Out-File -LiteralPath "$file"
-    #regex options. First one removes font sizes and bolding, 2nd one removes all font formatting.
+    #REGEX OPTIONS First one removes font sizes and bolding, 2nd one removes all font formatting.
     #( size="(.*?))"|(<b(.*?)>)|(</b(.*?)>)
     #"<(.*?)>"
     $filesMoved++
