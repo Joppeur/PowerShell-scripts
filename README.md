@@ -28,4 +28,4 @@ To run:
 1. Place the simple-filesort script to the folder containing files you want to sort.
 2. Right-click the script and choose "Run with Powershell.
 
-The script will prompt your for confirmation before moving any files.
+The script will prompt for confirmation before moving any files.
