@@ -1,3 +1,18 @@
+## Collection of my PowerShell scripts
+
+# convert-subtitles-to-srt
+
+Extracts .ass subtitles from .mkv containers and converts them to .srt files using ffmpeg. Also runs a cleanup for .srt files to remove font formatting, because ffmpeg doesn't map font sizes from ass to srt properly.
+
+To run:
+1. Run from any folder.
+2. Select .mkv files to extract subtitles from.
+3. By default, extracted subtitles go to the same folder as the video, and names the subtitle to VideoFileName.eng.srt
+
+Options to change in code:
+- Line 1: change the .eng.srt append to your liking
+- Line 45: Change regex to remove all font formatting, or just to remove <b> tags and font size. Correct regex code is on the line below.
+
 # simple-filesort-ps
 
 A PowerShell script to sort .jpeg and .mp4 files to folders per year and month. Videos will be placed in their own folder.
