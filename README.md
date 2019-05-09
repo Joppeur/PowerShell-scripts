@@ -14,7 +14,7 @@ Options to change in code:
 - Line 1: change the .eng.srt append to your liking
 - Line 45: Change regex to remove all font formatting, or just to remove font bold tags and font size. Correct regex code is on the line below.
 
-## simple-filesort-ps
+## simple-filesort
 
 A PowerShell script to sort .jpeg and .mp4 files to folders per year and month. Videos will be placed in their own folder.
 
