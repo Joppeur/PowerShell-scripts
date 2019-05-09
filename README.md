@@ -12,6 +12,7 @@ To run:
 
 Options to change in code:
 - Line 1: change the .eng.srt append to your liking
+- Line 27: Change -y / -n flag to tell ffmpeg to automatically overwrite (or not to) existing .srt files. Default is -y.
 - Line 45: Change regex to remove all font formatting, or just to remove font bold tags and font size. Regex for both are on the line below.
 
 ## simple-filesort
