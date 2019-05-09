@@ -10,7 +10,7 @@ Made for managing subtitles in Plex, since some platforms can't direct play .ass
 To run:
 1. Download and save script anywhere on your computer, right click and choose "Run with PowerShell".
 2. Select .mkv files to extract subtitles from.
-3. By default, extracted subtitles go to the same folder as the video, and names the subtitle to VideoFileName.eng.srt
+3. By default, extracted subtitles go to the same folder as the video, and named as VideoFileName.eng.srt
 
 Options to change in code:
 - Line 1: change the .eng.srt append to your liking
