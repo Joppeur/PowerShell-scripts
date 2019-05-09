@@ -42,7 +42,7 @@ ForEach($file in $SrtFileNames) {
     # Progress Bar
     $calc = ($filesMoved/$SrtFileNames.Count*100)
     Write-Progress -Activity "Cleaning .srt files ..." -Status ("{0}/{1}" -f $filesMoved, $SrtFileNames.Count) -PercentComplete $calc  -CurrentOperation $file 
-    (Get-Content -Encoding UTF8 -LiteralPath "$file") -Replace '( <(.*?)> )' | Out-File -LiteralPath "$file"
+    (Get-Content -Encoding UTF8 -LiteralPath "$file") -Replace '(<(.*?)>)' | Out-File -LiteralPath "$file"
     #regex options. First one removes font sizes and bolding, 2nd one removes all font formatting.
     #( size="(.*?))"|(<b(.*?)>)|(</b(.*?)>)
     #"<(.*?)>"
