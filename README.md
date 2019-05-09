@@ -2,7 +2,7 @@
 
 ## convert-subtitles-to-srt
 
-Extracts .ass subtitles from .mkv containers and converts them to .srt files using ffmpeg. Also runs a cleanup for .srt files to remove font formatting, because ffmpeg doesn't map font sizes from ass to srt properly.
+Extracts embedded .ass subtitles from .mkv containers and converts them to .srt files using ffmpeg. Also runs a cleanup for .srt files to remove font formatting, because ffmpeg doesn't map font sizes from ass to srt properly.
 Made for managing subtitles in Plex, since some platforms can't direct play .ass subs.
 
 To run:
